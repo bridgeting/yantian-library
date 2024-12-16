@@ -88,6 +88,9 @@ const playVideo = () => {
 }
 
 const showVideo = ref(false)
+const countSum = 10
+let curCount = 1
+
 const playNext = async () => {
 
   curAnimation.value = -1
@@ -100,6 +103,12 @@ const playNext = async () => {
     return
   }
   if (curAnimationIndex.value == 10) {
+
+    if(curCount >= countSum) {
+      location.reload()
+    } else {
+      curCount++
+    }
     curAnimation.value = curAnimationIndex.value = 0
     currentPause.value = 0
     showVideo.value = false
